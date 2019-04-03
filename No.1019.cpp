@@ -1,12 +1,13 @@
-vector<int> nextLargerNodes(vector<int> head) {
+vector<int> nextLargerNodes(ListNode* head) {
     struct T{
         int index;
         int Nu;
         int val;
     };
     vector<T>Li;
-    for(auto it:head){
-        Li.push_back({.val = it});
+    while(head){
+        Li.push_back({.val = head->val});
+        head = head->next;
     }
     T e{-1,-1,Li[Li.size() - 1].val};
     vector<int> ans(Li.size());
